@@ -1,0 +1,10 @@
+#gameCanvas {
+	border: 1px solid #000;
+	margin: auto;
+	display: block;
+	margin-top: 50px;
+}
+
+img {
+	display: none;
+}
