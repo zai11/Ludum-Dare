@@ -50,6 +50,7 @@ export default class HiLo {
 	
 	correct(game) {
 		this.correctDisplay.visible = true;
+		this.game.playScoreAudio();
 		setTimeout(function() {
 			game.increaseHealth(10);
 			game.toggleHome();
@@ -58,6 +59,7 @@ export default class HiLo {
 	
 	incorrect(game) {
 		this.incorrectDisplay.visible = true;
+		this.game.playFailAudio();
 		setTimeout(function() {
 			game.decreaseHealth(5);
 			game.toggleHome();

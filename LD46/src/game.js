@@ -1,4 +1,4 @@
-import Animal from './animal.js'
+import Alien from './alien.js'
 import HUD from './hud.js'
 import InputHandler from './inputHandler.js'
 import Timer from './timer.js'
@@ -34,7 +34,7 @@ export default class Game {
 		this.gameObjects = [];
 		this.buttons = [];
 		this.globalObjects = [];
-		this.animal = new Animal(this);
+		this.alien = new Alien(this);
 		this.menu = new Menu(this);
 		this.hud = new HUD(this);
 		this.timer = new Timer(this);
@@ -71,7 +71,7 @@ export default class Game {
 	
 	start() {
 		this.gameObjects = [ 
-			this.animal,
+			this.alien,
 			this.hud,
 			this.timer
 		];
@@ -156,20 +156,20 @@ export default class Game {
 	}
 	
 	reset() {
-		this.animal.reset();
+		this.alien.reset();
 		this.timer.reset();
 	}
 	
 	increaseHealth(amount) {
 		this.healthIncreaseDisplay = new HealthIncreaseDisplay(this, amount);
 		this.hud.healthChangeDisplays.push(this.healthIncreaseDisplay);
-		this.animal.health += amount;
+		this.alien.health += amount;
 	}
 	
 	decreaseHealth(amount) {
 		this.healthDecreaseDisplay = new HealthDecreaseDisplay(this, amount);
 		this.hud.healthChangeDisplays.push(this.healthDecreaseDisplay);
-		this.animal.health -= amount;
+		this.alien.health -= amount;
 	}
 	
 	playMusic() {

@@ -25,7 +25,7 @@ export default class HUD {
 	
 	update(deltaTime) {
 		this.buttons.forEach((b) => b.update(deltaTime));
-		this.health = this.game.animal.health;
+		this.health = this.game.alien.health;
 		this.healthChangeDisplays.forEach(function(hcd) {
 			hcd.update(deltaTime);
 			if (hcd.destroy)
