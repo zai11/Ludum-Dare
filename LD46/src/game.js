@@ -14,6 +14,7 @@ import HealthIncreaseDisplay from './healthIncreaseDisplay.js'
 import HealthDecreaseDisplay from './healthDecreaseDisplay.js'
 import HiLo from './hilo.js'
 import AudioButton from './audioButton.js'
+import AudioManager from './audioManager.js'
 
 const GAMESTATES = {
 	MENU: 0,
@@ -47,26 +48,8 @@ export default class Game {
 		this.hilo = new HiLo(this);
 		this.healthIncreaseDisplay;
 		this.healthDecreaseDisplay;
-		this.musicPlaying = false;
-		this.music = new Howl({
-			src: ['./assets/audio/bgmusic.ogg'],
-			autoplay: false,
-			loop: true,
-			volume:0.3
-		});
-		this.scoreAudio = new Howl({
-			src: ['./assets/audio/score.ogg'],
-			autoplay: false,
-			loop: false,
-			volume:0.5
-		});
-		this.failAudio = new Howl({
-			src: ['./assets/audio/fail.ogg'],
-			autoplay: false,
-			loop: false,
-			volume:0.5
-		});
 		this.audioButton = new AudioButton(this);
+		this.audioManager = new AudioManager(this);
 	}
 	
 	start() {
@@ -148,13 +131,6 @@ export default class Game {
 		this.gamestate = GAMESTATES.INSTRUCTIONS;
 	}
 	
-	toggleAudio() {
-		if (this.audioButton.mute)
-			this.audioButton.mute = false;
-		else
-			this.audioButton.mute = true;
-	}
-	
 	reset() {
 		this.alien.reset();
 		this.timer.reset();
@@ -170,27 +146,5 @@ export default class Game {
 		this.healthDecreaseDisplay = new HealthDecreaseDisplay(this, amount);
 		this.hud.healthChangeDisplays.push(this.healthDecreaseDisplay);
 		this.alien.health -= amount;
-	}
-	
-	playMusic() {
-		if (!this.music.playing()) {
-			this.music.play();
-		}
-	}
-	
-	playScoreAudio() {
-		if (!this.scoreAudio.playing()) {
-			this.scoreAudio.play();
-		}
-	}
-	
-	playFailAudio() {
-		if (!this.failAudio.playing()) {
-			this.failAudio.play();
-		}
-	}
-	
-	stopMusic() {
-		this.music.pause();
 	}
 }

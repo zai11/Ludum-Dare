@@ -103,12 +103,12 @@ export default class RMT {
 	
 	error() {
 		this.game.decreaseHealth(5);
-		this.game.playFailAudio();
+		this.game.audioManager.playFailAudio();
 		this.game.toggleHome();
 	}
 	
 	increaseScore() {
-		this.game.playScoreAudio();
+		this.game.audioManager.playScoreAudio();
 		this.score++;
 		if (this.score >= 3) {
 			this.game.increaseHealth(5);

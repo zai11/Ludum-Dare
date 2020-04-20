@@ -50,20 +50,20 @@ export default class HiLo {
 	
 	correct(game) {
 		this.correctDisplay.visible = true;
-		this.game.playScoreAudio();
+		this.game.audioManager.playScoreAudio();
 		setTimeout(function() {
 			game.increaseHealth(10);
 			game.toggleHome();
-		}, 3000);
+		}, 1500);
 	}
 	
 	incorrect(game) {
 		this.incorrectDisplay.visible = true;
-		this.game.playFailAudio();
+		this.game.audioManager.playFailAudio();
 		setTimeout(function() {
 			game.decreaseHealth(5);
 			game.toggleHome();
-		}, 3000);
+		}, 1500);
 	}
 	
 	reset() {

@@ -29,7 +29,7 @@ export default class InputHandler {
 					if (b.title === "b_instructions" && game.gamestate === 0) 
 						game.toggleInstructions();
 					if (b.title === "b_audio")
-						game.toggleAudio();
+						game.audioManager.toggleAudio();
 				}
 			});
 			
@@ -80,23 +80,6 @@ export default class InputHandler {
 		document.addEventListener("mousemove", function(e) {
 			
 			var mousePos = getMousePos(canvas, e);
-			/*var buttons = [...game.gamesMenu.gameButtons, ...game.globalObjects, ...game.menu.buttons];
-			
-			buttons.forEach(function(b) {
-				let buttonRect = {
-					x: b.position.x,
-					y: b.position.y,
-					width: b.width,
-					height: b.height
-				};
-				if (isInside(mousePos, buttonRect)) {
-					console.log(b.title);
-					if (b.title === "b_audio" || ((b.title === "b_game_rmt" || b.title === "b_game_hilo") && game.gamestate === 2) || ((b.title === "b_instructions" || b.title === "b_play") && game.gamestate === 0))
-						b.toggleHover(true);
-				}
-				else
-					b.toggleHover(false);
-			});*/
 			
 			var buttons = game.globalObjects;
 			

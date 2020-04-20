@@ -19,9 +19,9 @@ export default class AudioButton {
 	
 	update(deltaTime) {
 		if (!this.mute && !this.isPlaying)
-			this.game.playMusic();
+			this.game.audioManager.playMusic();
 		else
-			this.game.stopMusic();
+			this.game.audioManager.stopMusic();
 	}
 	
 	draw(ctx) {
